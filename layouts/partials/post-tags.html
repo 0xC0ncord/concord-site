@@ -1,0 +1,5 @@
+<ul class="post-tags">
+    {{ range $tag := sort .Params.tags "value" "asc" }}
+    <li><a href="{{ (index $.Site.Taxonomies.tags $tag).Page.Permalink }}">{{ . }}</a></li>
+    {{ end }}
+</ul>

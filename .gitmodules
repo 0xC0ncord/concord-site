@@ -1,0 +1,3 @@
+[submodule "themes/concord"]
+	path = themes/concord
+	url = git@git.fuwafuwatime.moe:0xC0ncord/concord-theme.git
