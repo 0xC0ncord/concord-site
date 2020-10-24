@@ -3,9 +3,11 @@ title: "Nextcloud cron with SELinux"
 date: 2020-10-24T13:10:00-04:00
 draft: false
 categories:
-- uncategorized
+- cobalt shield
 tags:
-- untagged
+- selinux
+- nginx
+- nextcloud
 ---
 If you run your own Nextcloud instance, one of the things you will need to do when finalizing setup is to configure Nextcloud's [internal cron service](https://docs.nextcloud.com/server/20/admin_manual/configuration_server/background_jobs_configuration.html).
 \
