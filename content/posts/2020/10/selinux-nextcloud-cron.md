@@ -20,7 +20,7 @@ The recommended option is system cron, which requires setting up a system cronjo
 */5 * * * * nginx php -f /var/www/nextcloud/htdocs/cron.php
 ```
 This cronjob will call the `cron.php` service directly running under the `nginx` user. On typical systems this is fine, but if you are using SELinux then you will notice some problems like the following:
-```sh
+```plain
 node=megumin type=AVC msg=audit(1603560001.338:3684): avc:  denied  { execmem } for  pid=30481 comm="php" scontext=system_u:system_r:system_cronjob_t:s0-s0:c0.c1023 tcontext=system_u:system_r:system_cronjob_t:s0-s0:c0.c1023 tclass=process permissive=1
 node=megumin type=AVC msg=audit(1603560001.338:3684): avc:  denied  { execstack } for  pid=30481 comm="php" scontext=system_u:system_r:system_cronjob_t:s0-s0:c0.c1023 tcontext=system_u:system_r:system_cronjob_t:s0-s0:c0.c1023 tclass=process permissive=1
 ```
@@ -32,7 +32,7 @@ These are two very sensitive and potentially dangerous permissions, so if you ar
 #!/bin/sh
 php -f /var/www/nextcloud/htdocs/cron.php
 ```
-```sh
+```plain
 type phpfpm_cron_exec_t;
 application_executable_file(phpfpm_cron_exec_t)
 cron_system_entry(phpfpm_t, phpfpm_cron_exec_t)
@@ -41,7 +41,7 @@ Now we can label our script as `phpfpm_cron_exec_t`, make it executable, and tel
 \
 \
 But now we have new problems:
-```sh
+```plain
 node=megumin type=AVC msg=audit(1603558690.194:3611): avc:  denied  { map } for  pid=27906 comm="sh" path="/bin/bash" dev="sda4" ino=13238332 scontext=system_u:system_r:phpfpm_t:s0 tcontext=system_u:object_r:shell_exec_t:s0 tclass=file permissive=1
 node=megumin type=AVC msg=audit(1603558690.194:3611): avc:  denied  { execute_no_trans } for  pid=27906 comm="php-fpm" path="/bin/bash" dev="sda4" ino=13238332 scontext=system_u:system_r:phpfpm_t:s0 tcontext=system_u:object_r:shell_exec_t:s0 tclass=file permissive=1
 node=megumin type=AVC msg=audit(1603558690.194:3611): avc:  denied  { read open } for  pid=27906 comm="php-fpm" path="/bin/bash" dev="sda4" ino=13238332 scontext=system_u:system_r:phpfpm_t:s0 tcontext=system_u:object_r:shell_exec_t:s0 tclass=file permissive=1
@@ -57,14 +57,14 @@ We can use the Webcron service and simply `curl` our `cron.php` internally using
 \
 \
 So we create a cronjob like so:
-```sh
+```bash
 */5 * * * * root curl https://nextcloud.example.com/cron.php >/dev/null
 ```
 And then we tell Nextcloud that we are using a Webcron. That's it!
 \
 \
 Additionally, you could even restrict the cron service endpoint to the local host or network only. To do this, you can insert this block into your Nextcloud's server definition in Nginx:
-```sh
+```nginx
 location = /cron.php {
     allow 127.0.0.1/32;
     deny all;
