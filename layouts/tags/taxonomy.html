@@ -1,21 +1,13 @@
 {{ define "main" }}
 <div class="mid">
-<h2>All Posts Tagged "{{ humanize .Title }}"</h2>
+<h2>All Tags</h2>
 <hr>
-<ul class="post-list">
-    {{ range first .Paginator.PageSize (where .Data.Pages ".Type" "posts") }}
-    <li>
-        <a href="{{ .Permalink }}"><h2 class="post-title">{{ .Title }}</h2></a>
-        <div class="post-meta">
-            <div>
-            {{ partial "post-categories.html" . }}
-            {{ partial "post-tags.html" . }}
-            </div>
-            <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
-        </div>
-    </li>
+<ul class="list-tags">
+    {{ range sort .Site.Taxonomies.tags }}
+        <li>
+            <a href="{{ .Page.Permalink }}">{{ .Page.Title }} ({{ .Count }})</a>
+        </li>
     {{ end }}
 </ul>
-{{ partial "paginator.html" . }}
 </div>
 {{ end }}
