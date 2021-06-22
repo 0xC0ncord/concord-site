@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="mid">
-<h2>All Posts in Category "{{ humanize .Title }}"</h2>
+<h2>All Posts in Category "{{ .Title }}"</h2>
 <hr>
 <ul class="post-list">
     {{ range first .Paginator.PageSize (where .Data.Pages ".Type" "posts") }}
