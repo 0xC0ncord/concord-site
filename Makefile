@@ -14,3 +14,6 @@ clean:
 
 build:
 	hugo
+
+release:
+	hugo --minify
