@@ -8,7 +8,7 @@ tags:
 - gitea
 - postgres
 - git
-- quick-fix
+- quickfix
 ---
 
 Only today did I notice that my Gitea instance was unable to create new repositories. A furious search turned up [this issue](https://github.com/go-gitea/gitea/issues/4407) regarding the issue. [This comment](https://github.com/go-gitea/gitea/issues/4407#issuecomment-469031232) explains it in more detail. The fix is to run this on the Gitea database:
