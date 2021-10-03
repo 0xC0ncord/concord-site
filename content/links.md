@@ -1,7 +1,6 @@
 ---
-title: "Contact"
-description: "Contact me"
-date: 2019-11-17T12:16:26-05:00
+title: "Links"
+date: 2021-06-30T21:52:25-04:00
 type: page
 layout: single
 weight: 3
