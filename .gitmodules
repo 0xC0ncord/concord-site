@@ -1,3 +1,6 @@
 [submodule "themes/concord"]
 	path = themes/concord
 	url = git@git.fuwafuwatime.moe:0xC0ncord/concord-theme.git
+[submodule "themes/hugo-notice"]
+	path = themes/hugo-notice
+	url = https://github.com/martignoni/hugo-notice.git

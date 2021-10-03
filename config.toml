@@ -1,7 +1,7 @@
 baseURL = "https://concord.sh/"
 languageCode = "en-us"
 title = "./concord.sh"
-theme = "concord"
+theme = ["hugo-notice", "concord"]
 paginate = 10
 
 [params]
