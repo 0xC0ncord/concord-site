@@ -10,7 +10,9 @@ paginate = 10
   MatrixUser = "@concord:fuwafuwatime.moe"
   AuthorEmail = "me _at_ concord dot sh"
   BTCAddressImgPath = "/img/wallet-btc.png"
+  BTCAddress = "bc1q9m8r3khggtyfzumqsegl6k93c59xd6rfyyqlux"
   XMRAddressImgPath = "/img/wallet-xmr.png"
+  XMRAddress = "482XMY3ynmiXcYwbUyt5RmR7xD2tcj1RygKHNiaReyaTYjKLYh9fiAqFGjctAY1Y2X6pQLCLyuJy4eBd1C5XX7wPR6BqX13"
 
 [taxonomies]
   category = "categories"
