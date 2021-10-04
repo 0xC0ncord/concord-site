@@ -5,7 +5,7 @@
 <ul class="post-list">
     {{ range (.Paginator).Pages }}
     <li>
-        <a href="{{ .Permalink }}"><h2 class="post-title">{{ .Title }}</h2></a>
+        <a class="post-title" href="{{ .Permalink }}">{{ .Title }}</a>
         <div class="post-meta">
             <div>
             {{ partial "post-categories.html" . }}
