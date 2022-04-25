@@ -1,6 +1,9 @@
 {{ define "main" }}
 <div class="mid">
 <h2>All Posts Tagged "{{ .Title }}"</h2>
+<a href="index.xml">
+    <img src="/img/rss.svg">
+</a>
 <hr>
 <ul class="post-list">
     {{ range first .Paginator.PageSize (where .Data.Pages ".Type" "posts") }}
