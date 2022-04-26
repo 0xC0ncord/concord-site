@@ -3,7 +3,7 @@ title: "Quick Word on Gitea Dump"
 date: 2020-07-18T22:04:15-04:00
 draft: false
 categories:
-- "help desk"
+- help desk
 tags:
 - gitea
 - postgres
