@@ -48,7 +48,7 @@ post: setup
 
 deploy: release
 	@echo -e $(PREFIX) $@ $(SUFFIX)
-	#scp -r $(OUTPUT_DIR) $(DEPLOY_HOST):.tmp-deploy
+	scp -r $(OUTPUT_DIR) $(DEPLOY_HOST):.tmp-deploy
 	ssh -t $(DEPLOY_HOST) "sudo -p '(%u@%H) sudo password: ' -- sh -c 'rm -vrf $(DEPLOY_DIR) && \
 		mv -v /home/$$USER/.tmp-deploy $(DEPLOY_DIR) && \
 		chown -Rv $(DEPLOY_OWNER) $(DEPLOY_DIR) && \
