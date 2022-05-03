@@ -13,6 +13,7 @@ DEPLOY_DIR := /var/www/concord/htdocs
 DEPLOY_OWNER := root:nginx
 DEPLOY_PERMS := u=rwX,go=rX
 
+export HUGO_GIT_COMMIT := $(shell git rev-parse --short HEAD)
 
 .PHONY: default
 default: build
