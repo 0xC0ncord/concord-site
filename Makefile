@@ -14,30 +14,36 @@ DEPLOY_OWNER := root:nginx
 DEPLOY_PERMS := u=rwX,go=rX
 DEPLOY_SELINUX := 1
 
-.PHONY: setup server clean build release post deploy
 
+.PHONY: default
 default: build
 
+.PHONY: setup
 setup:
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	cd $(MAKEFILE_DIR)
 
+.PHONY: clean
 clean: setup
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	rm -rf $(OUTPUT_DIR) .hugo_build.lock
 
+.PHONY: build
 build: setup clean
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	hugo
 
+.PHONY: release
 release: setup clean
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	hugo --minify
 
+.PHONY: server
 server: setup clean
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	hugo server
 
+.PHONY: post
 post: setup
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	POST_PATH="content/posts/$(shell date +%Y)/$(shell date +%m)"; \
@@ -46,10 +52,12 @@ post: setup
 	hugo new $${POST_PATH}/$${POST_NAME}.md; \
 	vi $${POST_PATH}/$${POST_NAME}.md
 
+.PHONY: publish
 publish: setup
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	sh publish-post.sh
 
+.PHONY: deploy
 deploy: release
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	scp -r $(OUTPUT_DIR) $(DEPLOY_HOST):.tmp-deploy
