@@ -4,6 +4,9 @@ title = "./concord.sh"
 theme = ["hugo-notice", "concord"]
 paginate = 10
 
+[frontmatter]
+  lastmod = ["lastmod", "publishDate", "date"]
+
 [params]
   AuthorName = "0xC0ncord"
   GithubUser = "0xC0ncord"
