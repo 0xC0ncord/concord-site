@@ -46,6 +46,10 @@ post: setup
 	hugo new $${POST_PATH}/$${POST_NAME}.md; \
 	vi $${POST_PATH}/$${POST_NAME}.md
 
+publish: setup
+	@echo -e $(PREFIX) $@ $(SUFFIX)
+	sh publish-post.sh
+
 deploy: release
 	@echo -e $(PREFIX) $@ $(SUFFIX)
 	scp -r $(OUTPUT_DIR) $(DEPLOY_HOST):.tmp-deploy
