@@ -19,7 +19,7 @@ PS3="Publish which post? (Ctrl-C cancels) "
 select opt in "${DRAFTS[@]}"
 do
     if [[ -f "${POSTS_PATH}"/"${opt}" ]]; then
-        sed "/^---/{n;:s;s/^\(draft:[[:space:]]\)true/publishDate: $(date +%Y-%m-%dT%I:%M:%S%:z)\n\1false/;n;Ts;q}" "${POSTS_PATH}"/"${opt}"
+        sed -i "/^---/{n;:s;s/^\(draft:[[:space:]]\)true/publishDate: $(date +%Y-%m-%dT%I:%M:%S%:z)\n\1false/;n;Ts;q}" "${POSTS_PATH}"/"${opt}"
         break
     else
         echo "Invalid choice ${REPLY}"
