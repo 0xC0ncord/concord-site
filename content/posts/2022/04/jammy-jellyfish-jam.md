@@ -8,6 +8,7 @@ categories:
 - help desk
 tags:
 - gentoo
+- systemd
 - ubuntu
 ---
 My girlfriend has been using Kubuntu 20.04 on her laptop almost since it was
