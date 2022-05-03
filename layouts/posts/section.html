@@ -14,11 +14,11 @@
             {{ partial "post-categories.html" . }}
             {{ partial "post-tags.html" . }}
             </div>
-            {{ if eq .Lastmod .Date }}
-            <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+            {{ if eq .Lastmod (.PublishDate | default .Date) }}
+            <span class="post-date">{{ (.PublishDate | default .Date).Format "January 2, 2006" }}</span>
             {{ else }}
             <span class="post-date tooltip">
-                {{ .Date.Format "January 2, 2006" }}
+                {{ (.PublishDate | default .Date).Format "January 2, 2006" }}
                 <div class="tooltip-text">
                     Last Modified: {{ .Lastmod.Format "January 2, 2006" }}
                 </div>
