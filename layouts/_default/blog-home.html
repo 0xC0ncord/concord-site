@@ -2,6 +2,9 @@
 {{ with .Site.GetPage "/posts" }}
 <div class="mid">
 <h2>Last {{ .Paginator.PageSize }} Posts</h2>
+<a href="/index.xml">
+    <img src="/img/rss.svg">
+</a>
 <hr>
 <ul class="post-list">
 {{ range first .Paginator.PageSize (where .Site.RegularPages ".Type" "posts") }}
