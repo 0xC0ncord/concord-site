@@ -11,7 +11,6 @@ OUTPUT_DIR = public
 DEPLOY_HOST := concord.sh
 DEPLOY_DIR := /var/www/concord/htdocs
 DEPLOY_OWNER := root:nginx
-DEPLOY_PERMS := u=rwX,go=rX
 
 export HUGO_GIT_COMMIT := $(shell git rev-parse --short HEAD)
 
@@ -60,9 +59,8 @@ publish: setup
 .PHONY: deploy
 deploy: release
 	@echo -e $(PREFIX) $@ $(SUFFIX)
-	scp -r $(OUTPUT_DIR) $(DEPLOY_HOST):.tmp-deploy
+	rsync -rptcv --chmod=D755,F644 --delete $(OUTPUT_DIR)/* $(DEPLOY_HOST):.tmp-deploy
 	ssh -t $(DEPLOY_HOST) "sudo -p '(%u@%H) sudo password: ' -- sh -c 'rm -vrf $(DEPLOY_DIR) && \
 		mv -v /home/$$USER/.tmp-deploy $(DEPLOY_DIR) && \
 		chown -Rv $(DEPLOY_OWNER) $(DEPLOY_DIR) && \
-		chmod -Rv $(DEPLOY_PERMS) $(DEPLOY_DIR) && \
 		([ -d /sys/fs/selinux ] && restorecon -RFv $(DEPLOY_DIR))'"
