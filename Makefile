@@ -12,7 +12,6 @@ DEPLOY_HOST := concord.sh
 DEPLOY_DIR := /var/www/concord/htdocs
 DEPLOY_OWNER := root:nginx
 DEPLOY_PERMS := u=rwX,go=rX
-DEPLOY_SELINUX := 1
 
 
 .PHONY: default
@@ -65,4 +64,4 @@ deploy: release
 		mv -v /home/$$USER/.tmp-deploy $(DEPLOY_DIR) && \
 		chown -Rv $(DEPLOY_OWNER) $(DEPLOY_DIR) && \
 		chmod -Rv $(DEPLOY_PERMS) $(DEPLOY_DIR) && \
-		([ "$(DEPLOY_SELINUX)" == "1" ] && restorecon -RFv $(DEPLOY_DIR))'"
+		([ -d /sys/fs/selinux ] && restorecon -RFv $(DEPLOY_DIR))'"
