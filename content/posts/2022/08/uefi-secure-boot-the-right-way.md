@@ -1,7 +1,8 @@
 ---
 title: "UEFI Secure Boot the Right Way"
 date: 2022-08-01T17:18:34-04:00
-draft: true
+publishDate: 2022-08-05T08:57:28-04:00
+draft: false
 categories:
 - cobalt shield
 tags:
