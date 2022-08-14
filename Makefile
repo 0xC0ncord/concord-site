@@ -30,7 +30,7 @@ clean: setup
 .PHONY: build
 build: setup clean
 	@echo -e $(PREFIX) $@ $(SUFFIX)
-	hugo
+	hugo -D
 
 .PHONY: release
 release: setup clean
@@ -40,7 +40,7 @@ release: setup clean
 .PHONY: server
 server: setup clean
 	@echo -e $(PREFIX) $@ $(SUFFIX)
-	hugo server
+	hugo -D server
 
 .PHONY: post
 post: setup
