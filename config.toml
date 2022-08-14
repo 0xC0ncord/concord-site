@@ -6,7 +6,7 @@ paginate = 10
 enableGitInfo = true
 
 [frontmatter]
-  lastmod = ["lastmod", "publishDate", "date"]
+  lastmod = [":git", "publishDate", "date"]
 
 [params]
   authorName = "0xC0ncord"
