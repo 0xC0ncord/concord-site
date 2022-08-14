@@ -1,0 +1,15 @@
+{{ $date := (.PublishDate | default .Date).Format "January 2, 2006" }}
+{{ $lastmod := .Lastmod.Format "January 2, 2006" }}
+{{ if or (eq $date $lastmod) (lt $date $lastmod) }}
+<span class="post-date">{{ $date }}</span>
+{{ else }}
+<span class="post-date tooltip">
+    {{ $date }}
+    <div class="tooltip-text">
+        Last Modified:
+        <a href="https://github.com/0xC0ncord/concord-site/commit/{{ .GitInfo.Hash }}">
+            {{ $lastmod }}
+        </a>
+    </div>
+</span>
+{{ end }}

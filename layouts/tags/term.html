@@ -14,19 +14,7 @@
             {{ partial "post-categories.html" . }}
             {{ partial "post-tags.html" . }}
             </div>
-            {{ if eq .Lastmod (.PublishDate | default .Date) }}
-            <span class="post-date">{{ (.PublishDate | default .Date).Format "January 2, 2006" }}</span>
-            {{ else }}
-            <span class="post-date tooltip">
-                {{ (.PublishDate | default .Date).Format "January 2, 2006" }}
-                <div class="tooltip-text">
-                    Last Modified:
-                    <a href="https://github.com/0xC0ncord/concord-site/commit/{{ .GitInfo.Hash }}">
-                        {{ .Lastmod.Format "January 2, 2006" }}
-                    </a>
-                </div>
-            </span>
-            {{ end }}
+            {{ partial "post-date.html" . }}
         </div>
     </li>
     {{ end }}
