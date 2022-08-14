@@ -3,19 +3,20 @@ languageCode = "en-us"
 title = "./concord.sh"
 theme = ["hugo-notice", "concord"]
 paginate = 10
+enableGitInfo = true
 
 [frontmatter]
   lastmod = ["lastmod", "publishDate", "date"]
 
 [params]
-  AuthorName = "0xC0ncord"
-  GithubUser = "0xC0ncord"
-  MatrixUser = "@concord:fuwafuwatime.moe"
-  AuthorEmail = "me _at_ concord dot sh"
-  BTCAddressImgPath = "/img/wallet-btc.png"
-  BTCAddress = "bc1q9m8r3khggtyfzumqsegl6k93c59xd6rfyyqlux"
-  XMRAddressImgPath = "/img/wallet-xmr.png"
-  XMRAddress = "482XMY3ynmiXcYwbUyt5RmR7xD2tcj1RygKHNiaReyaTYjKLYh9fiAqFGjctAY1Y2X6pQLCLyuJy4eBd1C5XX7wPR6BqX13"
+  authorName = "0xC0ncord"
+  githubUser = "0xC0ncord"
+  matrixUser = "@concord:fuwafuwatime.moe"
+  authorEmail = "me _at_ concord dot sh"
+  btcAddressImgPath = "/img/wallet-btc.png"
+  btcAddress = "bc1q9m8r3khggtyfzumqsegl6k93c59xd6rfyyqlux"
+  xmrAddressImgPath = "/img/wallet-xmr.png"
+  xmrAddress = "482XMY3ynmiXcYwbUyt5RmR7xD2tcj1RygKHNiaReyaTYjKLYh9fiAqFGjctAY1Y2X6pQLCLyuJy4eBd1C5XX7wPR6BqX13"
 
 [taxonomies]
   category = "categories"
