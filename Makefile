@@ -12,7 +12,10 @@ DEPLOY_HOST := concord.sh
 DEPLOY_DIR := /var/www/concord/htdocs
 DEPLOY_OWNER := root:nginx
 
-export HUGO_GIT_COMMIT := $(shell git rev-parse --short HEAD)
+export HUGO_PARAMS_siteGitCommit := $(shell git rev-parse HEAD)
+export HUGO_PARAMS_siteGitCommitShort := $(shell git rev-parse --short HEAD)
+export HUGO_PARAMS_themeGitCommit := $(shell git -C themes/concord rev-parse HEAD)
+export HUGO_PARAMS_themeGitCommitShort := $(shell git -C themes/concord rev-parse --short HEAD)
 
 .PHONY: default
 default: build
