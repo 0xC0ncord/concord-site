@@ -55,13 +55,13 @@ not have a bootable system at all.
 
 Most Linux distributions with existing UEFI secure boot support do so by using
 the GNU GRUB bootloader with a UEFI shim loader. What happens during boot is
-that the system EFI firmware will execute GRUB, which then executes the shim,
-which in turn executes the Linux kernel. The shim, when executed, will register
-itself with the system EFI firmware in such a way that when the system firmware
-wants to verify a signature for a to be executed EFI executable, it can ask the
-shim to do so in addition to the firmware's verification. The result is a sort
-of parallel signature verification process that allows EFI executables to have
-their signatures verified by both the system EFI firmware and the shim. The
+that the system EFI firmware will execute the shim loader, which then executes
+GRUB, which in turn executes the Linux kernel. The shim, when executed, will
+register itself with the system EFI firmware in such a way that when the system
+firmware wants to verify a signature for a to be executed EFI executable, it can
+ask the shim to do so in addition to the firmware's verification. The result is
+a sort of parallel signature verification process that allows EFI executables to
+have their signatures verified by both the system EFI firmware and the shim. The
 primary advantage of this is that the distribution can sign their own kernels
 using keys included in the shim and those signatures will be verified without
 the system owner needing to load those keys into the system firmware.
