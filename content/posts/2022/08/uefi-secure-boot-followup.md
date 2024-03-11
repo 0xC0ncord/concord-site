@@ -13,7 +13,7 @@ tags:
 - tpm
 ---
 This is a follow-up post to
-[UEFI Secure Boot the Right Way]({{< ref "/content/posts/2022/08/uefi-secure-boot-the-right-way.md" >}})
+[UEFI Secure Boot the Right Way]({{< ref "/posts/2022/08/uefi-secure-boot-the-right-way.md" >}})
 in which I answer some questions I have received and to address some confusion
 and clarify some erroneous information. Not only that, but I will share some
 additional information that I found out about after publication of that post! 😃

@@ -1,5 +1,5 @@
 <ul class="post-categories">
     {{ range $category := sort .Params.categories "value" "asc" }}
-    <li><a href="{{ (index $.Site.Taxonomies.categories (anchorize $category)).Page.Permalink }}">{{ . }}</a></li>
+    <li><a href="{{ (site.GetPage (printf `/categories/%s` .)).Permalink }}">{{ . }}</a></li>
     {{ end }}
 </ul>
